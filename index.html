@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>kangheechan_homepage_with_jquery</title>
+<style>
+  body, html {
+    margin: 0; padding: 0; font-family: 'Noto Sans KR', sans-serif;
+    background: #f5f7fa; color: #333;
+  }
+  a {
+    color: #1a73e8; text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  /* 네비게이션 */
+  nav {
+    position: fixed; top: 0; left: 0; width: 100%; background: rgba(255,255,255,0.95);
+    box-shadow: 0 2px 5px rgba(0,0,0,0); z-index: 1000;
+  }
+  .nav-container {
+    max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 20px;
+  }
+  .nav-logo {
+    font-weight: 700; font-size: 1.4rem; color: #1a73e8;
+  }
+  .nav-menu {
+    list-style: none; display: flex;
+  }
+  .nav-menu li {
+    margin-left: 20px;
+  }
+  .nav-menu li a {
+    font-weight: 500; padding: 6px 12px; border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  .nav-menu li a.active,
+  .nav-menu li a:hover {
+    background-color: #1a73e8; color: white;
+  }
+  /* 모바일*/
+  .nav-toggle {
+    display: none; font-size: 1.8rem; background: none; border: none; cursor: pointer;
+  }
+  /* 컨텐츠 */
+  main {
+    max-width: 960px; margin: 90px auto 40px auto; padding: 0 20px;
+  }
+  section.page {
+    display: none;
+  }
+  section.page.active {
+    display: block;
+  }
+  /* 자기소개 */
+  .profile {
+    display: flex; align-items: center; gap: 30px; flex-wrap: wrap;
+  }
+  .profile img {
+    width: 180px; height: 180px; object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  .profile-text {
+    flex: 1 1 300px;
+  }
+  .profile-text h1 {
+    margin-bottom: 12px;
+  }
+  /* 포트폴리오 */
+  .portfolio-list {
+    list-style: disc inside;
+    padding-left: 10px;
+  }
+  /* 연락처 */
+  .contact-info p {
+    margin-bottom: 10px;
+  }
+  /* 반응형 */
+  @media (max-width: 700px) {
+    .nav-menu {
+      position: fixed; top: 56px; left: 0; right: 0; background: white;
+      flex-direction: column; display: none; border-top: 1px solid #ddd;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .nav-menu.open {
+      display: flex;
+    }
+    .nav-menu li {
+      margin: 10px 0;
+      text-align: center;
+    }
+    .nav-toggle {
+      display: block;
+      color: #1a73e8;
+    }
+    main {
+      margin-top: 120px;
+    }
+    .profile {
+      justify-content: center;
+    }
+  }
+</style>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-container">
+    <div class="nav-logo">KangHeeChanHomePage</div>
+    <button class="nav-toggle" aria-label="메뉴 열기">&#9776;</button>
+    <ul class="nav-menu">
+      <li><a href="#" class="nav-link active" data-page="intro">Introduce_heechan</a></li>
+      <li><a href="#" class="nav-link" data-page="portfolio">PortFolio</a></li>
+      <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <!-- 자기소개 페이지 -->
+  <section class="page active" id="intro">
+    <div class="profile">
+      <img src="image.jpg" alt="not_image" />
+      <div class="profile-text">
+        <h1>KangHeeChan</h1>
+        <p>Hello, My name is Kangheechan who is majoring in statistics and data science at Kangwon National University.<br>
+        Currently, I'm in my second year as an undergraduate student.<br>
+        I'm pursuing my career as a data analysis expert.<br>
+        Please show a lot of interest.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 포트폴리오 페이지 -->
+  <section class="page" id="portfolio">
+    <h2>Portfolio</h2>
+    <ul class="portfolio-list">
+      <li>Project A - Statistics Korea Data Analysis (The Impact of Various Social Problems on Divorce Rate)<br>introduce contest :<a href="https://data.kostat.go.kr/sbchome/contents/cntPage.do?cntntsId=CNTS_000000000000276&curMenuNo=OPT_08_02_00_0" target="_blank"> 데이터 활용 대회</a>
+        <br> since : 20250421 ~ ing</li>
+      <br>
+      <li>Project B - Kaggle Data Analysis Contest</li>
+      <br>
+      <li>Project C - Creating Homepage with Jquery
+        <br> since : 20250526 ~ 20250602</li>
+    </ul>
+    <h2>Certificate</h2>
+    <ul class="portfolio-list">
+      <li>SQLD(SQL Developer)</li>
+    </ul>
+  </section>
+
+  <!-- 연락처 페이지 -->
+  <section class="page" id="contact">
+    <h2>연락처</h2>
+    <div class="contact-info">
+      <p>이메일: <a href="https://mail.google.com/mail/?view=cm&to=kangheechan03@gmail.com" target="_blank">kangheechan03@gmail.com</a></p>
+      <p>전화: 010-3108-7043</p>
+      <p>GitHub: <a href="https://kangheechan03.github.io/MyHomePage/" target="_blank">https://kangheechan03.github.io/MyHomePage/</a></p>
+    </div>
+  </section>
+</main>
+<script>
+  $(function(){
+    // 네비게이션 메뉴 토글 (모바일)
+    $('.nav-toggle').on('click', function(){
+      $('.nav-menu').toggleClass('open');
+    });
+
+    // 메뉴 클릭 시 페이지 전환
+    $('.nav-link').on('click', function(e){
+      e.preventDefault();
+      var pageId = $(this).data('page');
+
+      // 메뉴 닫기 (모바일)
+      if ($(window).width() <= 700) {
+        $('.nav-menu').removeClass('open');
+      }
+
+      // 활성 메뉴 표시
+      $('.nav-link').removeClass('active');
+      $(this).addClass('active');
+
+      // 페이지 전환
+      $('.page').removeClass('active');
+      $('#' + pageId).addClass('active');
+    });
+
+    // 윈도우 리사이즈 시 메뉴 초기화
+    $(window).on('resize', function(){
+      if ($(window).width() > 700) {
+        $('.nav-menu').removeClass('open');
+      }
+    });
+  });
+</script>
+</body>
+</html>
